@@ -10,6 +10,13 @@
 </template>
 
 <style lang="scss">
+    $mainHue: 180;
+
+    html, body {
+        margin: 0;
+        background: #f9fafa;
+    }
+
     * {
         box-sizing: border-box;
     }
@@ -19,5 +26,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: #2c3e50;
+        background: #f9fafa;
     }
 </style>

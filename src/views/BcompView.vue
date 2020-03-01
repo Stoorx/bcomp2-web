@@ -1,14 +1,16 @@
 <template>
     <div>
         BComp view
-        <Register name="AC" value="0xDEAD"/>
-        <Register name="BR" value="0xBABA"/>
-        <Register name="PS" value="0x0101"/>
-        <Register name="DR" value="0xDDDD"/>
-        <Register name="CR" value="0xC000"/>
-        <Register name="IP" value="0x0C00"/>
-        <Register name="SP" value="0xABAC"/>
-        <Register name="AR" value="0x0122"/>
+        <div class="registers-grid">
+            <Register :value="0xDEAD" name="AC" state="read"/>
+            <Register :value="0xBABA" name="BR"/>
+            <Register :value="0x0101" name="PS"/>
+            <Register :value="0xDDDD" name="DR" state="write"/>
+            <Register :value="0xC000" name="CR"/>
+            <Register :radix="10" :value="0x0C00" name="IP"/>
+            <Register :radix="36" :value="0xABAC" name="SP"/>
+            <Register :bits-count="11" :value="0x0122" name="AR"/>
+        </div>
     </div>
 </template>
 
@@ -27,5 +29,7 @@
 </script>
 
 <style scoped>
+    .registers-grid {
 
+    }
 </style>
