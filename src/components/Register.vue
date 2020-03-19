@@ -26,15 +26,15 @@
     @Prop({default: 16})
     private bitsCount!: number
 
-    private get _radix() {
-      return this.radix >= 2 && this.radix <= 36 ? this.radix : 16
+    private get _radix(): number {
+      return Number(this.radix >= 2 && this.radix <= 36 ? this.radix : 16)
     }
 
     private get _bitsCount() {
-      return this.bitsCount >= 1 && this.bitsCount <= 64 ? this.bitsCount : 16
+      return Number(this.bitsCount >= 1 && this.bitsCount <= 64 ? this.bitsCount : 16)
     }
 
-    private get displayValue() {
+    private get displayValue(): string {
       const value = this.value.toString(this._radix).toUpperCase()
       switch (this._radix) {
         case 2:
@@ -48,7 +48,7 @@
       }
     }
 
-    private get displayRadix() {
+    private get displayRadix(): string {
       switch (this._radix) {
         case 2:
           return 'BIN'
@@ -78,26 +78,27 @@
 </script>
 
 <style lang="scss" scoped>
-    $paddingSize: 7px;
+    $paddingSize: 8px;
     $borderRadius: 4px;
     $borderColor: #abbaba;
     $nameBgColor: #C0C0C0;
     $textColor: #202020;
 
     .root.read {
-        background: #b3ffb3;
+        background: #aaffaa;
         transition: background-color 0.2s ease-in;
     }
 
     .root.write {
-        background: #ff9999;
+        background: #ffaaaa;
         transition: background-color 0.2s ease-in;
     }
 
     .root {
         color: $textColor;
-        margin: 8px;
-
+        margin: 4px;
+        flex-grow: 1;
+        flex-basis: 300px;
         font-size: 12pt;
         display: flex;
         flex-direction: row;
